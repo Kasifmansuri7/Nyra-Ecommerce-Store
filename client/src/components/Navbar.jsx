@@ -38,6 +38,7 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  ${mobile({ display: "none" })}
 `;
 
 const Input = styled.input`

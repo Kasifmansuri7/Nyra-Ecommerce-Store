@@ -5,7 +5,6 @@ import { login } from "../../redux/apiCalls";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
