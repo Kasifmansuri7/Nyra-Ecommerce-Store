@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  ${mobile({ display: "none" })}
+  
 `;
 
 const Arrow = styled.div`
@@ -46,16 +46,19 @@ const Slide = styled.div`
   display: flex;
   align-items: center;
   background-color: #${(props) => props.bg};
+  ${mobile({ flexDirection: "column", justifyContent: "center" })}
 `;
 
 const ImgContainer = styled.div`
   height: 100%;
   flex: 1;
+  ${mobile({ height: "50%" })}
 `;
 
 const Image = styled.img`
   height: 80%;
   margin-left: ${(props) => props.margin}px;
+  ${mobile({ margin: "0 30px" })}
 `;
 
 const InfoContainer = styled.div`
@@ -65,6 +68,7 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 70px;
+  ${mobile({ fontSize: "40px" })}
 `;
 
 const Desc = styled.p`
@@ -72,6 +76,7 @@ const Desc = styled.p`
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 3px;
+  ${mobile({ fontSize: "16px" })}
 `;
 
 const Button = styled.button`
@@ -98,7 +103,7 @@ const Slider = () => {
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item) => (
-          <Slide bg={item.bg} key={item.id}>
+          <Slide bg={item.bg} key={item.id} className="flex">
             <ImgContainer>
               <Image margin={item.margin} src={item.img} />
             </ImgContainer>

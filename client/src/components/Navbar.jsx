@@ -9,15 +9,14 @@ import { logout } from "../redux/userRedux";
 
 const Container = styled.div`
   height: 60px;
-  ${mobile({ height: "50px" })}
+  ${mobile({ height: "50px", width: "380px" })}
 `;
 
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobile({ padding: "10px 0px", width: "100%" })}
 `;
 
 const Left = styled.div`
@@ -38,7 +37,7 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
-  ${mobile({ display: "none" })}
+  display: "none";
 `;
 
 const Input = styled.input`
@@ -60,16 +59,21 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${mobile({ flex: 2, justifyContent: "center" })}
+  ${mobile({ flex: 1, justifyContent: "center" })}
 `;
 
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+  ${mobile({ fontSize: "12px", marginLeft: "10px", padding: "0 2px" })}
 `;
 
+const cartIcon = {
+  "@media only screen and (max-width: 400px)": {
+    height: "10px",
+  },
+};
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
   const quantity = useSelector((state) => state.cart.quantity);
@@ -80,10 +84,18 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
+          <Link
+            to={`/products/women`}
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            <MenuItem>Women</MenuItem>
+          </Link>
+          <Link
+            to={`/products/men`}
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            <MenuItem>Men</MenuItem>
+          </Link>
         </Left>
         <Link to="/" style={{ color: "black", textDecoration: "none" }}>
           <Center>
@@ -119,8 +131,8 @@ const Navbar = () => {
 
           <Link to="/cart">
             <MenuItem>
-              <Badge badgeContent={quantity} color="primary">
-                <ShoppingCartOutlined />
+              <Badge badgeContent={quantity} style={{ color: "black" }} color="primary">
+                <ShoppingCartOutlined style={cartIcon} />
               </Badge>
             </MenuItem>
           </Link>
