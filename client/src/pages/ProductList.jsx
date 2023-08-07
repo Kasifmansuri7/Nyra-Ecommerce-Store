@@ -59,7 +59,7 @@ const ProductList = () => {
     getProduct();
   }, [cat]);
 
-  console.log(products);
+
   const handleFilters = (e) => {
     const value = e.target.value;
     setFilters({

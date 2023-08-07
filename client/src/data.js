@@ -5,7 +5,7 @@ export const sliderItems = [
       title: "SUMMER SALE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "f5fafd",
-      margin:0
+      margin:200  
     },
     {
       id: 2,

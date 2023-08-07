@@ -64,10 +64,11 @@ export default function Product() {
   async function updateData(e, id) {
     e.preventDefault();
     console.log(updated);
-    const res = await userRequest.put(`/products/${id}`, { ...updated} );
+    const res = await userRequest.put(`/products/${id}`, { ...updated });
 
     console.log(res.data);
   }
+  console.log(product);
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -123,6 +124,20 @@ export default function Product() {
               type="text"
               placeholder={product.price}
               name="price"
+              onChange={handleUpdate}
+            />
+              <label>Color</label>
+            <input
+              type="text"
+              placeholder={product.color}
+              name="color"
+              onChange={handleUpdate}
+            />
+            <label>Categories</label>
+            <input
+              type="text"
+              placeholder={product.categories}
+              name="categories"
               onChange={handleUpdate}
             />
             <label>In Stock</label>

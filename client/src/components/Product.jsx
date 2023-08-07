@@ -33,7 +33,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -48,6 +48,8 @@ const Circle = styled.div`
 
 const Image = styled.img`
   height: 75%;
+  width: 200px;
+  object-fit: cover;
   z-index: 2;
 `;
 
@@ -72,21 +74,26 @@ const Product = ({ item }) => {
     <Container>
       <Circle />
       <Image src={item.img} />
-      <Info>
-        <Icon>
-          <ShoppingCartOutlined />
-        </Icon>
-        <Icon>
-          <Link to={`/product/${item._id}`}>
-          <SearchOutlined />
-          </Link>
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlined />
-        </Icon>
-      </Info>
+      <Link to={`/product/${item._id}`}>
+        <Info>
+          {/* <Icon> */}
+          {/* <SearchOutlined /> */}
+          {/* </Icon>  */}
+        </Info>
+      </Link>
     </Container>
   );
 };
+
+{
+  /* <Icon>
+<ShoppingCartOutlined />
+</Icon> */
+}
+{
+  /* <Icon>
+<FavoriteBorderOutlined />
+</Icon> */
+}
 
 export default Product;
